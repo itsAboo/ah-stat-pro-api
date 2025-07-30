@@ -1,0 +1,20 @@
+"use strict";
+var __importDefault = (this && this.__importDefault) || function (mod) {
+    return (mod && mod.__esModule) ? mod : { "default": mod };
+};
+Object.defineProperty(exports, "__esModule", { value: true });
+const express_1 = __importDefault(require("express"));
+const post_controller_1 = require("../controllers/post.controller");
+const auth_1 = require("../util/auth");
+const user_controller_1 = require("../controllers/user.controller");
+const router = express_1.default.Router();
+router.post("/refresh-token", user_controller_1.refreshToken);
+router.post("/sign-out", user_controller_1.signout);
+router.get("/", post_controller_1.getPosts);
+router.get("/my-posts", auth_1.verifyToken, post_controller_1.getMyPosts);
+router.get("/:id", auth_1.verifyToken, post_controller_1.getPost);
+router.post("/", auth_1.verifyToken, post_controller_1.createPost);
+router.patch("/", auth_1.verifyToken, post_controller_1.editPost);
+router.patch("/:id/access", auth_1.verifyToken, post_controller_1.editPostAccess);
+router.delete("/:id", auth_1.verifyToken, post_controller_1.deletePost);
+exports.default = router;
