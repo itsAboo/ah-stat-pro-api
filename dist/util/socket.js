@@ -11,7 +11,7 @@ let io;
 const initSocket = (server) => {
     io = new socket_io_1.Server(server, {
         cors: {
-            origin: "http://localhost:5173",
+            origin: process.env.ORIGIN,
             methods: ["GET", "POST"],
         },
     });

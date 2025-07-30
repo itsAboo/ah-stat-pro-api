@@ -18,7 +18,7 @@ interface JWTPayload {
 export const initSocket = (server: http.Server) => {
   io = new SocketIOServer(server, {
     cors: {
-      origin: "http://localhost:5173", 
+      origin: process.env.ORIGIN,
       methods: ["GET", "POST"],
     },
   });
@@ -66,5 +66,5 @@ export const sendNotification = (recipientId: string, data: any) => {
   if (socketId && io) {
     io.to(socketId).emit("notification", data);
     console.log(`📨 Sent notification to ${recipientId}`);
-  } 
+  }
 };
