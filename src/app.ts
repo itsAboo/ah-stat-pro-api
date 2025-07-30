@@ -40,6 +40,7 @@ app.use(cookieParser());
 app.get("/", (req, res) => {
   res.send("Hello world");
 });
+
 app.use("/api/user", userRoute);
 app.use("/api/handicap", handicapMovementRoute);
 app.use("/api/post", postRoute);

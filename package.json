@@ -5,10 +5,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "nodemon ./src/app.ts",
-    "start": "node dist/app.js",
-    "build": "rimraf dist && tsc",
-    "ts.check": "tsc --project tsconfig.json",
-    "add-build": "git add dist"
+    "start": "node dist/app.js"
   },
   "keywords": [],
   "author": "",
@@ -37,10 +34,5 @@
     "pre-commit": "^1.2.2",
     "rimraf": "^6.0.1",
     "socket.io": "^4.8.1"
-  },
-  "pre-commit": [
-    "ts.check",
-    "build",
-    "add-build"
-  ]
+  }
 }
