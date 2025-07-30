@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.getMaxByKey = void 0;
+exports.getMaxByKey = getMaxByKey;
 function getMaxByKey(items, key, secondaryKey = "totalMatches") {
     if (items.length === 0)
         return undefined;
@@ -22,4 +22,3 @@ function getMaxByKey(items, key, secondaryKey = "totalMatches") {
         return max;
     }, items[0]);
 }
-exports.getMaxByKey = getMaxByKey;
