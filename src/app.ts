@@ -32,11 +32,14 @@ app.use(
   cors({
     origin: isProduction ? process.env.ORIGIN : "http://localhost:5173",
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 app.use(cookieParser());
 
+app.use("/", (req, res) => {
+  res.send("Api work");
+});
 app.use("/api/user", userRoute);
 app.use("/api/handicap", handicapMovementRoute);
 app.use("/api/post", postRoute);

@@ -28,6 +28,9 @@ app.use((0, cors_1.default)({
 }));
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
+app.use("/", (req, res) => {
+    res.send("Api work");
+});
 app.use("/api/user", user_route_1.default);
 app.use("/api/handicap", handicap_movement_route_1.default);
 app.use("/api/post", post_route_1.default);
