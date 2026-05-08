@@ -32,7 +32,7 @@ app.use(
   cors({
     origin: isProduction ? process.env.ORIGIN : "http://localhost:5173",
     credentials: true,
-  })
+  }),
 );
 app.use(express.json());
 app.use(cookieParser());
@@ -45,11 +45,14 @@ app.use("/api/access-request", accessRequestRoute);
 app.use("/api/post-access", postAccessRoute);
 
 connectDB(() => {
-  const server = http.createServer(app);
+  // const server = http.createServer(app);
 
-  initSocket(server);
+  // initSocket(server);
 
-  server.listen(PORT, () => {
+  // server.listen(PORT, () => {
+  //   console.log(`start server on port ${PORT}`);
+  // });
+  app.listen(PORT, () => {
     console.log(`start server on port ${PORT}`);
   });
 });
