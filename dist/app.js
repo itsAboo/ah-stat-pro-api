@@ -28,15 +28,15 @@ app.use((0, cors_1.default)({
 }));
 app.use(express_1.default.json());
 app.use((0, cookie_parser_1.default)());
-app.use("/", (req, res) => {
-    res.send("Api work");
-});
 app.use("/api/user", user_route_1.default);
 app.use("/api/handicap", handicap_movement_route_1.default);
 app.use("/api/post", post_route_1.default);
 app.use("/api/notification", notification_route_1.default);
 app.use("/api/access-request", access_request_route_1.default);
 app.use("/api/post-access", post_access_route_1.default);
+app.use("/", (req, res) => {
+    res.send("Api work");
+});
 (0, connect_1.connectDB)(() => {
     const server = http_1.default.createServer(app);
     (0, socket_1.initSocket)(server);

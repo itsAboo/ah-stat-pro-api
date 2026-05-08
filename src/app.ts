@@ -37,15 +37,15 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
-app.use("/", (req, res) => {
-  res.send("Api work");
-});
 app.use("/api/user", userRoute);
 app.use("/api/handicap", handicapMovementRoute);
 app.use("/api/post", postRoute);
 app.use("/api/notification", notificationRoute);
 app.use("/api/access-request", accessRequestRoute);
 app.use("/api/post-access", postAccessRoute);
+app.use("/", (req, res) => {
+  res.send("Api work");
+});
 
 connectDB(() => {
   const server = http.createServer(app);
