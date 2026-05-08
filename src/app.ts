@@ -56,7 +56,6 @@ connectDB(() => {
   //   console.log(`start server on port ${PORT}`);
   // });
   app.listen(PORT, () => {
-    console.log("New");
     console.log(`start server on port ${PORT}`);
   });
 });
