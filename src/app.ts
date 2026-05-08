@@ -37,6 +37,9 @@ app.use(
 app.use(express.json());
 app.use(cookieParser());
 
+app.use("/", () => {
+  console.log("Hello world");
+});
 app.use("/api/user", userRoute);
 app.use("/api/handicap", handicapMovementRoute);
 app.use("/api/post", postRoute);
